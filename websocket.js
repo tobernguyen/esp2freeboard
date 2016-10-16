@@ -1,7 +1,9 @@
 'use strict';
 
 let handler = (req, res) => {
-  res.writeHead(200);
+  res.statusCode = 200;
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.end();
 };
 
