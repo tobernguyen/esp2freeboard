@@ -1,0 +1,90 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"title": "PIN Values",
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 2
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "PIN D0",
+						"size": "regular",
+						"value": "datasources[\"Desk ESP\"][\"PIN_D0\"]",
+						"sparkline": false,
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "PIN D1",
+						"size": "regular",
+						"value": "datasources[\"Desk ESP\"][\"PIN_D1\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "PIN D8",
+						"size": "regular",
+						"value": "datasources[\"Desk ESP\"][\"PIN_D8\"]",
+						"animate": true
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "Sensor Value From PIN A0",
+						"value": "datasources[\"Desk ESP\"][\"PIN_A0\"]",
+						"min_value": 0,
+						"max_value": "256"
+					}
+				}
+			]
+		}
+	],
+	"datasources": [
+		{
+			"name": "Desk ESP",
+			"type": "node_js",
+			"settings": {
+				"url": "http://54.254.167.51:8080",
+				"events": [
+					{
+						"eventName": "device_out"
+					}
+				],
+				"rooms": [
+					{
+						"roomName": "INSERT_DEVICE_ID_HERE",
+						"roomEvent": "join device channel"
+					}
+				]
+			}
+		}
+	],
+	"columns": 3
+}

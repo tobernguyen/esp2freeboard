@@ -1,2 +1,18 @@
-h2 Your device ID: #{uuid}
-h3 Use the ID above to config your ESP
+html
+  head
+    title= Create new device
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+  body
+    h2 Your device ID: #{uuid}
+    h3
+      a(href='/freeboard' target="_blank") Go to dashboard
+      br
+    script.
+      $(function(){
+        $.getJSON("/templates/default.json", function(json) {
+          var template = json;
+          template['datasources'][0]['settings']['rooms'][0]['roomName'] = "#{uuid}";
+          var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(template));
+          $('<a href="data:' + data + '" download="#{uuid}.json">Download config file</a>').appendTo('h3');
+        });
+      })
