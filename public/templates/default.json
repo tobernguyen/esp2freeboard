@@ -60,7 +60,7 @@
 						"title": "Sensor Value From PIN A0",
 						"value": "datasources[\"Desk ESP\"][\"PIN_A0\"]",
 						"min_value": 0,
-						"max_value": "256"
+						"max_value": "1024"
 					}
 				}
 			]
